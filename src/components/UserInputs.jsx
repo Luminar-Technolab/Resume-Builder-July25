@@ -7,10 +7,12 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField } from '@mui/material';
+import { FaXmark } from "react-icons/fa6";
 
 const steps = ['Basic Informations', 'Contact Details', 'Education Details','Work Experience', 'Skills & Certifications', 'Review & Submit'];
 
 function UserInputs() {
+  const skillSuggestionArray = ['NODE JS','MONGODB','EXPRESS JS','REACT','ANGULAR','LEADERSHIP','COMMUNICATION','COACHING','POWER BI','MS EXCEL']
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -71,26 +73,64 @@ function UserInputs() {
         case 1 : return (
             <div>
                 <h3>Contact Details</h3>
+                <div className="row p-3">
+                    <TextField id="standard-basic-mail" label="E Mail" variant="standard" />
+                    <TextField id="standard-basic-mobile" label="Mobile Number" variant="standard" />
+                    <TextField id="standard-basic-github" label="Github Profile Link" variant="standard" />
+                    <TextField id="standard-basic-linkedin" label="Linkedin Profile Link" variant="standard" />
+                    <TextField id="standard-basic-portfolio" label="Portfolio Link" variant="standard" />
+                </div>
             </div>
         )
         case 2 : return (
             <div>
                 <h3>Education Details</h3>
+                <div className="row p-3">
+                    <TextField id="standard-basic-course" label="Course Name" variant="standard" />
+                    <TextField id="standard-basic-college" label="College Name" variant="standard" />
+                    <TextField id="standard-basic-university" label="University Name" variant="standard" />
+                    <TextField id="standard-basic-year" label="Year of Passout" variant="standard" />
+                </div>
             </div>
         )
         case 3 : return (
             <div>
                 <h3>Professional Details</h3>
+                <div className="row p-3">
+                    <TextField id="standard-basic-jori" label="Job or Internship" variant="standard" />
+                    <TextField id="standard-basic-company" label="Company Name" variant="standard" />
+                    <TextField id="standard-basic-clocation" label="Company Location" variant="standard" />
+                    <TextField id="standard-basic-duration" label="Duration" variant="standard" />
+                </div>
             </div>
         )
         case 4 : return (
             <div>
                 <h3>Skills</h3>
+                <div className="d-flex align-items-center justify-content-between p-3 w-100">
+                  <input placeholder='Add Skill' type="text" className="form-control" />
+                  <Button variant='text'>ADD</Button>
+                </div>
+                <h5>Suggestions</h5>
+                <div className="d-flex flex-wrap justify-content-between my-3">
+                    {
+                      skillSuggestionArray.map((item,index)=>(
+                        <Button key={index} variant="outlined" className='m-1'>{item}</Button>
+                      ))
+                    }
+                </div>
+                <h5>Added Skils :</h5>
+                <div className="d-flex flex-wrap justify-content-between my-3">
+                    <Button variant="contained" className='m-1'>NODE JS <FaXmark className='ms-2'/> </Button>
+                </div>
             </div>
         )
         case 5 : return (
             <div>
                 <h3>Summary</h3>
+                <div className="p-3 row">
+                  <TextField id="standard-basic-summary" label="Write a short summary of yourself" variant="standard" multiline rows={7} defaultValue={'Versatile and results-driven Full Stack Web Developer with 5+ years of experience designing, developing, and deploying scalable web applications. Proficient in both front-end and back-end technologies, including React, Angular, Node.js, Express, and MongoDB. Adept at creating responsive user interfaces, RESTful APIs, and integrating third-party services. Strong understanding of software development life cycle, agile methodologies, and version control (Git). Passionate about building high-performance, user-centric solutions that solve real-world problems.'}/>
+                </div>
             </div>
         )
         default : return null
