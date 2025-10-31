@@ -11,31 +11,31 @@ import { FaXmark } from "react-icons/fa6";
 
 const steps = ['Basic Informations', 'Contact Details', 'Education Details','Work Experience', 'Skills & Certifications', 'Review & Submit'];
 
-function UserInputs() {
+function UserInputs({resumeDetails,setResumeDetails}) {
   const skillSuggestionArray = ['NODE JS','MONGODB','EXPRESS JS','REACT','ANGULAR','LEADERSHIP','COMMUNICATION','COACHING','POWER BI','MS EXCEL']
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
-  //create state for storing resume details
-  const [resumeDetails,setResumeDetails] = React.useState({
-    username:"",
-    jobTitle:"",
-    location:"",
-    email:"",
-    mobile:"",
-    github:"",
-    linkedin:"",
-    portfolio:"",
-    course:"",
-    college:"",
-    university:"",
-    passoutYear:"",
-    jobType:"",
-    company:"",
-    cLocation:"",
-    duration:"",
-    userSkills:[],
-    summary:""
-  })
+  // resume details - get from props
+  // const [resumeDetails,setResumeDetails] = React.useState({
+  //   username:"",
+  //   jobTitle:"",
+  //   location:"",
+  //   email:"",
+  //   mobile:"",
+  //   github:"",
+  //   linkedin:"",
+  //   portfolio:"",
+  //   course:"",
+  //   college:"",
+  //   university:"",
+  //   passoutYear:"",
+  //   jobType:"",
+  //   company:"",
+  //   cLocation:"",
+  //   duration:"",
+  //   userSkills:[],
+  //   summary:""
+  // })
   //refernce to skill input tag
   const skillRef = React.useRef()
 
