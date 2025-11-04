@@ -546,7 +546,8 @@
         - Uncontrolled component : user input data will be fetched from real dom, here tag can directly acccess via 'useRef' hook
     16. Handling API In react
         - fetch method
-        - axios library
+        - Axios library : Promise based HTTP client for the browser and node.js
+            - Install:  npm install axios
     17. Data shairing React
         - State lifting : data shairing using props, Here state will lift to its common parent so that its child can access data via pros
 
