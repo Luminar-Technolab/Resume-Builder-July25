@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { TextField } from '@mui/material';
 import { FaXmark } from "react-icons/fa6";
 import { addResumeAPI } from "../services/allAPI";
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Basic Informations', 'Contact Details', 'Education Details','Work Experience', 'Skills & Certifications', 'Review & Submit'];
 
@@ -39,6 +40,8 @@ function UserInputs({resumeDetails,setResumeDetails}) {
   // })
   //refernce to skill input tag
   const skillRef = React.useRef()
+  //to naviagte 
+  const naviagte = useNavigate()
 
   console.log(resumeDetails);
   
@@ -196,11 +199,15 @@ function UserInputs({resumeDetails,setResumeDetails}) {
     try{
      const result =  await addResumeAPI(resumeDetails)
      console.log(result);
-     
+     if(result.status==201){
+      alert("Resume added successfully!!!")
+      const {id} = result.data
+       //success redirect view page
+      naviagte(`/resume/${id}/view`)
+     }
     }catch(error){
       console.log(error);      
     }
-    //success redirect view page
     }
     
   }
